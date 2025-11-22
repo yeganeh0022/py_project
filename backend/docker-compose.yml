@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    container_name: plant-expert-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app              # کد پروژه را bind می‌کنیم تا تغییرات سریع دیده شوند
+      - ./expertSystem.db:/app/expertSystem.db  # می‌چسبانیم فایل sqlite به کانتینر برای ماندگاری
+    restart: unless-stopped
